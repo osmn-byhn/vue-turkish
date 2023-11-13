@@ -39,14 +39,14 @@ import { VTLink } from '@vue/theme'
       </div>
 
       <p class="help">
-        You can read the previous issues and listen to our podcast at
+        Önceki sayıları okuyabilir ve podcast'imizi dinleyebilirsiniz.
         <VTLink
           class="link"
           href="https://news.vuejs.org/"
           no-icon
-        >news.vuejs.org</VTLink>. You may also go social at
-        <VTLink class="link" href="https://twitter.com/vuejs" no-icon>Twitter</VTLink>, or join our home at
-        <VTLink class="link" href="https://chat.vuejs.org/" no-icon>Discord</VTLink>.
+        >news.vuejs.org</VTLink>.
+        <VTLink class="link" href="https://twitter.com/vuejs" no-icon>Twitter</VTLink> ile sosyal medyada da bize katılabilir veya
+        <VTLink class="link" href="https://chat.vuejs.org/" no-icon>Discord </VTLink>aracılığıyla bize katılabilirsiniz
       </p>
     </div>
   </section>

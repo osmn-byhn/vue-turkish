@@ -12,7 +12,7 @@ function track() {
       target="_blank"
       rel="noopener nofollow"
       @click="track"
-      >Try it → Build and deploy your own ChatGPT bot with JavaScript in 5 minutes</a
+      >Deneyin → 5 dakika içinde kendi ChatGPT botunuzu JavaScript ile oluşturun ve dağıtın.</a
     >
   </div>
 </template>

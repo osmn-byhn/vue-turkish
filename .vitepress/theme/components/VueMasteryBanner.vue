@@ -26,10 +26,10 @@
             FREE WEEKEND <span>NOV 10-12</span>
           </h1>
           <p class="vm-free-weekend-sub">
-            Watch all Vue Mastery courses free
+            Tüm Vue Mastery kurslarını ücretsiz izle!
           </p>
         </div>
-        <button id="vm-banner-cta">Get Access</button>
+        <button id="vm-banner-cta">Eriş</button>
       </div>
       <button id="vm-banner-close" @click.prevent="closeBanner">
         <VTIconPlus class="close" />

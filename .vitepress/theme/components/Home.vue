@@ -14,18 +14,16 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      <span class="accent">Gelişen</span>
+      <br />JavaScript Framework'ü
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      Web kullanıcı arayüzleri oluşturmak için yaklaşılabilir, performanslı ve çok yönlü bir framework.
     </p>
     <p class="actions">
       <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Buradan Başlayın
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,12 +36,12 @@ onMounted(async () => {
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">Kurulum</a>
     </p>
   </section>
 
   <section id="special-sponsor">
-    <span class="lead">Special Sponsor</span>
+    <span class="lead">Özel Sponsorlar</span>
     <template v-if="data && data.special">
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
@@ -69,32 +67,29 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>Ulaşılabilir</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        Standard HTML, CSS ve JavaScript'in üzerine inşa edilmiş, sezgisel API ve dünya standartlarında belgelerle birlikte gelir.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>Performanslı</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        Gerçekten reaktif, derleyici tarafından optimize edilmiş bir render sistemidir ve genellikle manuel optimizasyon gerektirmez.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>Çeşitli Kullanımlara Uygun</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        Zengin, aşamalı olarak benimseyilebilir bir ekosistem, bir kütüphane ile tam özellikli bir çerçeve arasında ölçeklenebilir.
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
+    <h2>Platinum Sponsorlar</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>Gold Sponsorlar</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 
