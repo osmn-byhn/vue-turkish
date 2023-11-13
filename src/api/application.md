@@ -1,23 +1,22 @@
-# Application API {#application-api}
+# Uygulama API'si {#application-api}
 
 ## createApp() {#createapp}
 
-Creates an application instance.
+Bir uygulama örneği oluşturur.
 
-- **Type**
+- **Tür**
 
   ```ts
   function createApp(rootComponent: Component, rootProps?: object): App
   ```
 
-- **Details**
+- **Detaylar**
 
-  The first argument is the root component. The second optional argument is the props to be passed to the root component.
+  İlk argüman, kök bileşendir. İkinci, isteğe bağlı argüman, kök bileşene iletilmesi gereken özelliklerdir.
 
-- **Example**
+- **Örnek**
 
-  With inline root component:
-
+  İç içe geçmiş kök bileşen ile:
   ```js
   import { createApp } from 'vue'
 
@@ -26,45 +25,42 @@ Creates an application instance.
   })
   ```
 
-  With imported component:
-
+  İçeri aktarılan bileşen ile:
+  
   ```js
   import { createApp } from 'vue'
   import App from './App.vue'
 
   const app = createApp(App)
   ```
-
-- **See also** [Guide - Creating a Vue Application](/guide/essentials/application)
+- **Ayrıca bakınız** [Rehber - Bir Vue Uygulaması Oluşturma](/guide/essentials/application)
 
 ## createSSRApp() {#createssrapp}
 
-Creates an application instance in [SSR Hydration](/guide/scaling-up/ssr#client-hydration) mode. Usage is exactly the same as `createApp()`.
+[Uygulama SSR Hidrasyon](/guide/scaling-up/ssr#client-hydration) modunda bir uygulama örneği oluşturur. Kullanımı tam olarak `createApp()` ile aynıdır.
 
 ## app.mount() {#app-mount}
 
-Mounts the application instance in a container element.
+Uygulama örneğini bir konteyner öğesine monte eder.
 
-- **Type**
+- **Tür**
 
   ```ts
   interface App {
     mount(rootContainer: Element | string): ComponentPublicInstance
   }
   ```
+- **Detaylar**
 
-- **Details**
+  Argüman, gerçek bir DOM öğesi veya bir CSS seçici olabilir (eşleşen ilk öğe kullanılır). Kök bileşen örneğini döndürür.
 
-  The argument can either be an actual DOM element or a CSS selector (the first matched element will be used). Returns the root component instance.
+  Bileşenin bir şablonu veya bir render işlevi tanımlanmışsa, konteyner içindeki mevcut DOM düğümlerini değiştirir. Aksi takdirde, çalışma zamanı derleyicisi kullanılabilirse, konteynerın `innerHTML`'i şablon olarak kullanılır.
 
-  If the component has a template or a render function defined, it will replace any existing DOM nodes inside the container. Otherwise, if the runtime compiler is available, the `innerHTML` of the container will be used as the template.
+  SSR hidrasyon modunda, konteyner içindeki mevcut DOM düğümlerini hidrate eder. [Uyuşmazlıklar](/guide/scaling-up/ssr#hydration-mismatch) varsa, mevcut DOM düğümleri beklenen çıktıya uymak üzere değiştirilir.
 
-  In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
+  Her uygulama örneği için, `mount()` yalnızca bir kez çağrılabilir.
 
-  For each app instance, `mount()` can only be called once.
-
-- **Example**
-
+- **Örnek**
   ```js
   import { createApp } from 'vue'
   const app = createApp(/* ... */)

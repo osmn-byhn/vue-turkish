@@ -1,101 +1,102 @@
-# Frequently Asked Questions {#frequently-asked-questions}
+# Sıkça Sorulan Sorular {#frequently-asked-questions}
 
-## Who maintains Vue? {#who-maintains-vue}
+## Vue'yu kim yönetiyor? {#who-maintains-vue}
 
-Vue is an independent, community-driven project. It was created by [Evan You](https://twitter.com/youyuxi) in 2014 as a personal side project. Today, Vue is actively maintained by [a team of both full-time and volunteer members from all around the world](/about/team), where Evan serves as the project lead. You can learn more about the story of Vue in this [documentary](https://www.youtube.com/watch?v=OrxmtDw4pVI).
+Vue bağımsız, topluluk destekli bir projedir. 2014 yılında [Evan You](https://twitter.com/youyuxi) tarafından kişisel bir yan proje olarak oluşturulmuştur. Bugün, Vue, [dünyanın dört bir yanından tam zamanlı ve gönüllü üyelerden oluşan bir ekip tarafından aktif bir şekilde sürdürülmektedir](/hakkinda/ekip), Evan ise proje lideri olarak görev yapmaktadır. Vue'nun hikayesi hakkında daha fazla bilgiyi bu [belgeselde](https://www.youtube.com/watch?v=OrxmtDw4pVI) bulabilirsiniz.
 
-Vue's development is primarily funded through sponsorships and we have been financially sustainable since 2016. If you or your business benefit from Vue, consider [sponsoring us](/sponsor/) to support Vue's development!
+Vue'nun gelişimi sponsorluklar aracılığıyla finanse edilmektedir ve 2016 yılından bu yana mali açıdan sürdürülebilirdir. Eğer siz veya işletmeniz Vue'dan faydalanıyorsa, Vue'nun gelişimini desteklemek için [bizi sponsorlamayı](/sponsor/) düşünün!
 
-## What's the difference between Vue 2 and Vue 3? {#what-s-the-difference-between-vue-2-and-vue-3}
+## Vue 2 ve Vue 3 arasındaki fark nedir? {#what-s-the-difference-between-vue-2-and-vue-3}
 
-Vue 3 is the current, latest major version of Vue. It contains new features that are not present in Vue 2, such as Teleport, Suspense, and multiple root elements per template. It also contains breaking changes that make it incompatible with Vue 2. Full details are documented in the [Vue 3 Migration Guide](https://v3-migration.vuejs.org/).
+Vue 3, mevcut ve en son büyük sürümüdür. Teleport, Suspense ve şablonda birden fazla kök öğe gibi Vue 2'de bulunmayan yeni özelliklere sahiptir. Ayrıca, Vue 2 ile uyumsuz kılan kesin değişiklikler içerir. Ayrıntılı bilgiler [Vue 3 Geçiş Rehberi'nde](https://v3-migration.vuejs.org/) belgelenmiştir.
 
-Despite the differences, the majority of Vue APIs are shared between the two major versions, so most of your Vue 2 knowledge will continue to work in Vue 3. Notably, Composition API was originally a Vue-3-only feature, but has now been backported to Vue 2 and is available in [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
+Farklara rağmen, Vue'nun çoğu API'si iki büyük sürüm arasında paylaşılır, bu nedenle Vue 2 bilgilerinizin çoğu, Vue 3'te de çalışmaya devam edecektir. Özellikle, Kompozisyon API başlangıçta sadece Vue 3 için bir özellikken, şu anda Vue 2'ye geri taşınmış ve [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01) sürümünde kullanılabilir.
 
-In general, Vue 3 provides smaller bundle sizes, better performance, better scalability, and better TypeScript / IDE support. If you are starting a new project today, Vue 3 is the recommended choice. There are only a few reasons for you to consider Vue 2 as of now:
+Genel olarak, Vue 3 daha küçük paket boyutları, daha iyi performans, daha iyi ölçeklenebilirlik ve daha iyi TypeScript / IDE desteği sağlar. Eğer bugün yeni bir proje başlatıyorsanız, Vue 3'ü önerilen seçenek olarak düşünebilirsiniz. Şu anda Vue 2'yi düşünmeniz için sadece birkaç neden vardır:
 
-- You need to support IE11. Vue 3 leverages modern JavaScript features and does not support IE11.
+- IE11'i desteklemeniz gerekiyorsa. Vue 3, modern JavaScript özelliklerinden yararlanır ve IE11'i desteklemez.
 
-If you intend to migrate an existing Vue 2 app to Vue 3, consult the [migration guide](https://v3-migration.vuejs.org/).
+Mevcut bir Vue 2 uygulamasını Vue 3'e taşımak istiyorsanız, [geçiş rehberine](https://v3-migration.vuejs.org/) danışın.
 
-## Is Vue 2 Still Supported? {#is-vue-2-still-supported}
+## Vue 2 hala destekleniyor mu? {#is-vue-2-still-supported}
 
-Vue 2.7, which was shipped in July 2022, is the final minor release of the Vue 2 version range. Vue 2 has now entered maintenance mode: it will no longer ship new features, but will continue to receive critical bug fixes and security updates for 18 months starting from the 2.7 release date. This means **Vue 2 will reach End of Life on December 31st, 2023**.
+Temmuz 2022'de piyasaya sürülen Vue 2.7, Vue 2 sürüm aralığının final küçük sürümüdür. Vue 2 şimdi bakım moduna girmiştir: yeni özellikler eklenmeyecek, ancak 2.7 sürüm tarihinden itibaren kritik hata düzeltmeleri ve güvenlik güncellemeleri almaya devam edecektir. Bu, **Vue 2'nin 2023 yılının 31 Aralık'ta Son Kullanma Tarihine ulaşacağı** anlamına gelir.
 
-We believe this should provide plenty of time for most of the ecosystem to migrate over to Vue 3. However, we also understand that there could be teams or projects that cannot upgrade by this timeline while still needing to fulfill security and compliance requirements. We are partnering with industry experts to provide extended support for Vue 2 for teams with such needs - if your team expects to be using Vue 2 beyond the end of 2023, make sure to plan ahead and learn more about [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
+Bu süreç, ekosistemin çoğunluğunun Vue 3'e geçmesi için yeterli zaman sağlayacağını düşünüyoruz. Ancak, güvenlik ve uyumluluk gereksinimlerini karşılamak zorunda olan ancak bu süre zarfında yükselme yapamayan takımlar veya projeler olabileceğini anlıyoruz. Vue 2'yi 2023 yılı sonrasında kullanmayı bekleyen takımlar için genişletilmiş destek sağlamak için endüstri uzmanlarıyla işbirliği yapmaktayız - eğer takımınız 2023 yılı sonrasında Vue 2 kullanmayı planlıyorsa, [Vue 2 Genişletilmiş LTS](https://v2.vuejs.org/lts/) hakkında daha fazla bilgi edinmek için plan yapın.
 
-## What license does Vue use? {#what-license-does-vue-use}
+## Vue hangi lisansı kullanıyor? {#what-license-does-vue-use}
 
-Vue is a free and open source project released under the [MIT License](https://opensource.org/licenses/MIT).
+Vue, [MIT Lisansı](https://opensource.org/licenses/MIT) altında yayınlanan ücretsiz ve açık kaynaklı bir projedir.
 
-## What browsers does Vue support? {#what-browsers-does-vue-support}
+## Vue hangi tarayıcıları destekliyor? {#what-browsers-does-vue-support}
 
-The latest version of Vue (3.x) only supports [browsers with native ES2015 support](https://caniuse.com/es6). This excludes IE11. Vue 3.x uses ES2015 features that cannot be polyfilled in legacy browsers, so if you need to support legacy browsers, you will need to use Vue 2.x instead.
+Vue'nun en son sürümü (3.x), sadece [native ES2015 destekli tarayıcıları](https://caniuse.com/es6) destekler. Bu, IE11'i içermez. Vue 3.x, ES2015 özelliklerini kullanır ve eski tarayıcılarda polyfill yapılamaz, bu nedenle eski tarayıcıları desteklemeniz gerekiyorsa, Vue 2.x'i kullanmanız gerekecektir.
 
-## Is Vue reliable? {#is-vue-reliable}
+## Vue güvenilir mi? {#is-vue-reliable}
 
-Vue is a mature and battle-tested framework. It is one of the most widely used JavaScript frameworks in production today, with over 1.5 million users worldwide, and is downloaded close to 10 million times a month on npm.
+Vue, olgun ve sıkça test edilmiş bir çerçevedir. Bugün, dünya çapında 1.5 milyonun üzerinde kullanıcısı olan ve npm üzerinden aylık yaklaşık 10 milyon kez indirilen en yaygın kullanılan JavaScript çerçevelerinden biridir.
 
-Vue is used in production by renowned organizations in varying capacities all around the world, including Wikimedia Foundation, NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou, and many more.
+Vue, dünya genelinde Wikimedia Foundation, NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou ve birçok ünlü organizasyon tarafından çeşitli kapasitelerde üretimde kullanılmaktadır.
 
-## Is Vue fast? {#is-vue-fast}
+## Vue hızlı mı? {#is-vue-fast}
 
-Vue 3 is one of the most performant mainstream frontend frameworks, and handles most web application use cases with ease, without the need for manual optimizations.
+Vue 3, en performanslı mainstream frontend çerçevelerinden biridir ve çoğu web uygulama kullanım durumunu manuel optimizasyonlara ihtiyaç duymadan ele alır.
 
-In stress-testing scenarios, Vue outperforms React and Angular by a decent margin in the [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html). It also goes neck-and-neck against some of the fastest production-level non-Virtual-DOM frameworks in the benchmark.
+Stres testi senaryolarında, Vue [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html) üzerinde React ve Angular'ı ciddi bir marjla geride bırakır. Ayrıca, benchmark'taki en hızlı üretim seviyesi non-Virtual-DOM çerçevelerinden bazılarına karşı başa baş bir performans sergiler.
 
-Do note that synthetic benchmarks like the above focus on raw rendering performance with dedicated optimizations and may not be fully representative of real-world performance results. If you care more about page load performance, you are welcome to audit this very website using [WebPageTest](https://www.webpagetest.org/lighthouse) or [PageSpeed Insights](https://pagespeed.web.dev/). This website is powered by Vue itself, with SSG pre-rendering, full page hydration and SPA client-side navigation. It scores 100 in performance on an emulated Moto G4 with 4x CPU throttling over slow 4G networks.
+Lütfen yukarıdaki gibi sentetik benchmark'lar, özel optimizasyonlarla ham rendering performansına odaklanır ve gerçek dünya performans sonuçlarını tam olarak temsil etmeyebilir. Sayfa yükleme performansına daha fazla önem veriyorsanız, bu web sitesini [WebPageTest](https://www.webpagetest.org/lighthouse) veya [PageSpeed Insights](https://pagespeed.web.dev/) kullanarak denetleyebilirsiniz. Bu web sitesi kendisi Vue tarafından desteklenmektedir, SSG ön-renderleme, tam sayfa hidrasyon ve SPA istemci tarafı gezinme ile. Yavaş 4G ağlarında 4x CPU kısıtlaması ile emüle edilen Moto G4 üzerinde performans üzerinde 100 alır.
 
-You can learn more about how Vue automatically optimizes runtime performance in the [Rendering Mechanism](/guide/extras/rendering-mechanism) section, and how to optimize a Vue app in particularly demanding cases in the [Performance Optimization Guide](/guide/best-practices/performance).
+Vue'nun çalışma zamanı performansını nasıl otomatik olarak optimize ettiği hakkında daha fazla bilgi için [Rendering Mekanizması](/rehber/ekstralar/rendering-mechanism) bölümüne ve özellikle zorlu durumlarda bir Vue uygulamasını nasıl optimize edeceğiniz hakkında bilgi için [Performans Optimizasyon Rehberi](/rehber/best-practices/performance) bölümüne göz atabilirsiniz.
 
-## Is Vue lightweight? {#is-vue-lightweight}
+## Vue hafif mi? {#is-vue-lightweight}
 
-When you use a build tool, many of Vue's APIs are ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). For example, if you don't use the built-in `<Transition>` component, it won't be included in the final production bundle.
+Bir yapı aracı kullandığınızda, Vue'nun birçok API'si ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking) (ağaç sarsılabilir) olarak işlev gösterir. Örneğin, yerleşik `<Transition>` bileşenini kullanmıyorsanız, bu, son üretim paketine dahil edilmeyeceği anlamına gelir.
 
-A hello world Vue app that only uses the absolutely minimal APIs has a baseline size of only around **16kb**, with minification and brotli compression. The actual size of the application will depend on how many optional features you use from the framework. In the unlikely case where an app uses every single feature that Vue provides, the total runtime size is around **27kb**.
+Sadece mutlak minimum API'leri kullanan bir merhaba dünya Vue uygulamasının temel boyutu, minifikasyon ve brotli sıkıştırması ile sadece yaklaşık **16kb**'dir. Uygulamanın gerçek boyutu, çerçeveden kullanılan isteğe bağlı özelliklerin sayısına bağlı olacaktır. Eğer bir uygulama, Vue'nun sağladığı her özelliği kullanıyorsa, toplam çalışma zamanı boyutu yaklaşık **27kb**'dir.
 
-When using Vue without a build tool, we not only lose tree-shaking, but also have to ship the template compiler to the browser. This bloats up the size to around **41kb**. Therefore, if you are using Vue primarily for progressive enhancement without a build step, consider using [petite-vue](https://github.com/vuejs/petite-vue) (only **6kb**) instead.
+Vue'yu bir yapı aracı olmadan kullanırken, ağaç sarsma yeteneğini kaybetmekle kalmaz, aynı zamanda şablom derleyicisini tarayıcıya göndermek zorundadır. Bu, boyutu yaklaşık **41kb**'ye çıkarır. Bu nedenle, Vue'yu genellikle bir yapı adımı olmadan aşamalı geliştirme için kullanıyorsanız, [petite-vue](https://github.com/vuejs/petite-vue) (sadece **6kb**) kullanmayı düşünün.
 
-Some frameworks, such as Svelte, use a compilation strategy that produces extremely lightweight output in single-component scenarios. However, [our research](https://github.com/yyx990803/vue-svelte-size-analysis) shows that the size difference heavily depends on the number of components in the application. While Vue has a heavier baseline size, it generates less code per component. In real-world scenarios, a Vue app may very well end up being lighter.
+Bazı çerçeveler, örneğin Svelte, tek bileşen senaryolarında son derece hafif bir çıktı üreten derleme stratejisi kullanır. Ancak [araştırmamız](https://github.com/yyx990803/vue-svelte-size-analysis) gösteriyor ki boyut farkı uygulamadaki bileşen sayısına bağlı olarak büyük ölçüde değişmektedir. Vue, daha ağır bir başlangıç boyutuna sahip olmasına rağmen, bileşen başına daha az kod üretir. Gerçek dünya senaryolarında, bir Vue uygulamasının oldukça hafif olması mümkündür.
 
-## Does Vue scale? {#does-vue-scale}
+## Vue ölçeklenebilir mi? {#does-vue-scale}
 
-Yes. Despite a common misconception that Vue is only suitable for simple use cases, Vue is perfectly capable of handling large scale applications:
+Evet. Vue'nun yalnızca basit kullanım durumları için uygun olduğu yaygın bir yanılgıya rağmen, Vue büyük ölçekli uygulamaları başarıyla yönetebilir:
 
-- [Single-File Components](/guide/scaling-up/sfc) provide a modularized development model that allows different parts of an application to be developed in isolation.
+- [Tek Dosya Bileşenleri](/guide/scaling-up/sfc), uygulamanın farklı bölümlerinin izole bir şekilde geliştirilmesine olanak tanıyan modüler bir geliştirme modeli sunar.
 
-- [Composition API](/guide/reusability/composables) provides first-class TypeScript integration and enables clean patterns for organizing, extracting and reusing complex logic.
+- [Kompozisyon API](/guide/reusability/composables), birinci sınıf TypeScript entegrasyonu sağlar ve karmaşık mantığı düzenlemenizi, çıkarmanızı ve tekrar kullanmanızı mümkün kılar.
 
-- [Comprehensive tooling support](/guide/scaling-up/tooling) ensures a smooth development experience as the application grows.
+- [Kapsamlı araç desteği](/guide/scaling-up/tooling), uygulama büyüdükçe sorunsuz bir geliştirme deneyimi sağlar.
 
-- Lower barrier to entry and excellent documentation translate to lower onboarding and training costs for new developers.
+- Düşük başlangıç seviyesi ve mükemmel belgelendirme, yeni geliştiriciler için düşük onboarding ve eğitim maliyetlerine dönüşür.
 
-## How do I contribute to Vue? {#how-do-i-contribute-to-vue}
+## Vue'ye Nasıl Katkıda Bulunabilirim? {#how-do-i-contribute-to-vue}
 
-We appreciate your interest! Please check out our [Community Guide](/about/community-guide).
+İlgilendiğiniz için teşekkür ederiz! Lütfen [Topluluk Rehberi](/about/community-guide)'mize göz atın.
 
-## Should I use Options API or Composition API? {#should-i-use-options-api-or-composition-api}
+## Options API mı, Composition API mı Kullanmalıyım? {#should-i-use-options-api-or-composition-api}
 
-If you are new to Vue, we provide a high-level comparison between the two styles [here](/guide/introduction#which-to-choose).
+Eğer Vue'a yeni başlıyorsanız, iki stil arasında yüksek seviyeli bir karşılaştırma [burada](/guide/introduction#which-to-choose) bulunmaktadır.
 
-If you have previously used Options API and are currently evaluating Composition API, check out [this FAQ](/guide/extras/composition-api-faq).
+Eğer daha önce Options API kullanmış ve şu anda Composition API'yi değerlendiriyorsanız, [bu SSS](/guide/extras/composition-api-faq)'ya göz atın.
 
-## Should I use JavaScript or TypeScript with Vue? {#should-i-use-javascript-or-typescript-with-vue}
+## Vue ile JavaScript mi, TypeScript mi Kullanmalıyım? {#should-i-use-javascript-or-typescript-with-vue}
 
-While Vue itself is implemented in TypeScript and provides first-class TypeScript support, it does not enforce an opinion on whether you should use TypeScript as a user.
+Vue kendisi TypeScript ile uygulanmış olmasına rağmen, kullanıcı olarak TypeScript kullanıp kullanmamak konusunda bir görüşü zorlamaz.
 
-TypeScript support is an important consideration when new features are added to Vue. APIs that are designed with TypeScript in mind are typically easier for IDEs and linters to understand, even if you aren't using TypeScript yourself. Everybody wins. Vue APIs are also designed to work the same way in both JavaScript and TypeScript as much as possible.
+TypeScript desteği, Vue'a yeni özellikler eklendiğinde önemli bir düşüncedir. TypeScript için tasarlanmış API'lar genellikle IDE'lerin ve linter'ların anlamasını kolaylaştırır, hatta siz TypeScript kullanmasanız bile. Herkes kazanır. Vue API'ları, mümkün olduğunca JavaScript ve TypeScript'te aynı şekilde çalışacak şekilde tasarlanmıştır.
 
-Adopting TypeScript involves a trade-off between onboarding complexity and long-term maintainability gains. Whether such a trade-off can be justified can vary depending on your team's background and project scale, but Vue isn't really an influencing factor in making that decision.
+TypeScript'e geçiş, onboarding karmaşıklığı ile uzun vadeli bakım kazanımları arasında bir takas gerektirir. Bu takasın haklı olup olmadığı, ekibinizin geçmişi ve proje ölçeğine bağlı olarak değişebilir, ancak Vue genellikle bu kararı vermekte etkili bir faktör değildir.
 
-## How does Vue compare to Web Components? {#how-does-vue-compare-to-web-components}
+## Vue, Web Bileşenleri ile Nasıl Karşılaştırılır? {#how-does-vue-compare-to-web-components}
 
-Vue was created before Web Components were natively available, and some aspects of Vue's design (e.g. slots) were inspired by the Web Components model.
+Vue, Web Bileşenleri'nin doğal olarak kullanılabilir olduğundan önce oluşturuldu, ve Vue'un tasarımının bazı yönleri (örneğin, slotlar) Web Bileşenleri modelinden esinlenilmiştir.
 
-The Web Components specs are relatively low-level, as they are centered around defining custom elements. As a framework, Vue addresses additional higher-level concerns such as efficient DOM rendering, reactive state management, tooling, client-side routing, and server-side rendering.
+Web Bileşenleri spesifikasyonları, özel elementleri tanımlamak etrafında odaklanan düşük seviyeli spesifikasyonlardır. Bir çerçeve olarak, Vue etkili DOM renderlama, reaktif durum yönetimi, araçlar, istemci tarafı yönlendirme ve sunucu tarafı renderlama gibi ek yüksek seviyeli konulara odaklanır.
 
-Vue also fully supports consuming or exporting to native custom elements - check out the [Vue and Web Components Guide](/guide/extras/web-components) for more details.
+Vue aynı zamanda yerel özel elementlere tüketme veya bu özel elementlere dışa aktarma konusunu tamamen destekler - daha fazla ayrıntı için [Vue ve Web Bileşenleri Rehberi'ne](/guide/extras/web-components) göz atın.
 
-<!-- ## TODO How does Vue compare to React? -->
+<!-- ## TODO Vue, React ile Nasıl Karşılaştırılır? -->
 
-<!-- ## TODO How does Vue compare to Angular? -->
+<!-- ## TODO Vue, Angular ile Nasıl Karşılaştırılır? -->
+

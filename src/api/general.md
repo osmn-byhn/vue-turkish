@@ -2,11 +2,11 @@
 
 ## version {#version}
 
-Exposes the current version of Vue.
+Mevcut Vue sürümünü açığa çıkarır.
 
-- **Type:** `string`
+- **Tür:** `string`
 
-- **Example**
+- **Örnek**
 
   ```js
   import { version } from 'vue'
@@ -16,7 +16,7 @@ Exposes the current version of Vue.
 
 ## nextTick() {#nexttick}
 
-A utility for waiting for the next DOM update flush.
+Sonraki DOM güncelleme işleminin tamamlanmasını beklemek için kullanılan bir yardımcı fonksiyon.
 
 - **Type**
 
@@ -24,13 +24,13 @@ A utility for waiting for the next DOM update flush.
   function nextTick(callback?: () => void): Promise<void>
   ```
 
-- **Details**
+- **Detaylar**
 
-  When you mutate reactive state in Vue, the resulting DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" to ensure that each component updates only once no matter how many state changes you have made.
+  Vue'da reaktif durumu değiştirdiğinizde, oluşan DOM güncellemeleri eşzamanlı olarak uygulanmaz. Bunun yerine, Vue, her bir bileşenin yalnızca bir kez güncellenmesini sağlamak için bunları "bir sonraki tick"e kadar arabelleğe alır.
 
-  `nextTick()` can be used immediately after a state change to wait for the DOM updates to complete. You can either pass a callback as an argument, or await the returned Promise.
+  `nextTick()`, bir durum değişikliğinden hemen sonra DOM güncellemelerinin tamamlanmasını beklemek için kullanılabilir. Bir geri çağrıyı argüman olarak iletebilir veya dönen Promise'i bekleyebilirsiniz.
 
-- **Example**
+- **Örnek**
 
   <div class="composition-api">
 
@@ -91,14 +91,14 @@ A utility for waiting for the next DOM update flush.
   ```
 
   </div>
-
-- **See also** [`this.$nextTick()`](/api/component-instance#nexttick)
+- **Ayrıca bakınız** [`this.$nextTick()`](/api/component-instance#nexttick)
 
 ## defineComponent() {#definecomponent}
 
-A type helper for defining a Vue component with type inference.
+Tür çıkarımı ile bir Vue bileşeni tanımlamak için bir tür yardımcısı.
 
-- **Type**
+- **Tür**
+
 
   ```ts
   // options syntax
@@ -115,13 +115,13 @@ A type helper for defining a Vue component with type inference.
 
   > Type is simplified for readability.
 
-- **Details**
+- **Detaylar**
 
-  The first argument expects a component options object. The return value will be the same options object, since the function is essentially a runtime no-op for type inference purposes only.
+  İlk argüman, bir bileşen seçenekleri nesnesini bekler. Dönüş değeri, işlev aslında tür çıkarımı amaçlı çalışan bir işleve dayandığından, aynı seçenek nesnesi olacaktır.
 
-  Note that the return type is a bit special: it will be a constructor type whose instance type is the inferred component instance type based on the options. This is used for type inference when the returned type is used as a tag in TSX.
+  Dönüş türü biraz özeldir: İlk etapta, seçeneklere dayanarak çıkarılan bileşen örneği türüne sahip bir yapılandırıcı türü olacaktır. Bu, döndürülen tür, TSX içinde bir etiket olarak kullanıldığında tür çıkarımı için kullanılır.
 
-  You can extract the instance type of a component (equivalent to the type of `this` in its options) from the return type of `defineComponent()` like this:
+  Bir bileşenin örnek türünü (seçeneklerindeki `this` türüne eşdeğer) `defineComponent()`'in dönüş türünden şu şekilde çıkarabilirsiniz:
 
   ```ts
   const Foo = defineComponent(/* ... */)
@@ -129,11 +129,11 @@ A type helper for defining a Vue component with type inference.
   type FooInstance = InstanceType<typeof Foo>
   ```
 
-  ### Function Signature <sup class="vt-badge" data-text="3.3+" /> {#function-signature}
+### İşlev İmzası <sup class="vt-badge" data-text="3.3+" /> {#function-signature}
 
-  `defineComponent()` also has an alternative signature that is meant to be used with Composition API and [render functions or JSX](/guide/extras/render-function.html).
+`defineComponent()`, Composition API ve [render fonksiyonları veya JSX](/guide/extras/render-function.html) ile kullanılmak üzere tasarlanmış alternatif bir imzaya sahiptir.
 
-  Instead of passing in an options object, a function is expected instead. This function works the same as the Composition API [`setup()`](/api/composition-api-setup.html#composition-api-setup) function: it receives the props and the setup context. The return value should be a render function - both `h()` and JSX are supported:
+Seçenekler nesnesini geçirmek yerine, beklenti bir işlevdir. Bu işlev, Composition API [`setup()`](/api/composition-api-setup.html#composition-api-setup) işleviyle aynı şekilde çalışır: props ve setup bağlamını alır. Dönüş değeri bir render fonksiyonu olmalıdır - hem `h()` hem de JSX desteklenir:
 
   ```js
   import { ref, h } from 'vue'
@@ -157,7 +157,8 @@ A type helper for defining a Vue component with type inference.
   )
   ```
 
-  The main use case for this signature is with TypeScript (and in particular with TSX), as it supports generics:
+  Bu imzanın ana kullanım durumu, genellikle TypeScript (ve özellikle TSX ile) ile birlikte kullanıldığında, çünkü generikleri destekler:
+
 
   ```tsx
   const Comp = defineComponent(
@@ -177,27 +178,27 @@ A type helper for defining a Vue component with type inference.
   )
   ```
 
-  In the future, we plan to provide a Babel plugin that automatically infers and injects the runtime props (like for `defineProps` in SFCs) so that the runtime props declaration can be omitted.
+  Gelecekte, çalışma zamanı prop bildirimlerini (`defineProps` için SFC'lerde olduğu gibi) atlamaya olanak tanıyan ve otomatik olarak çıkarıp enjekte eden bir Babel eklentisi sağlamayı planlıyoruz.
 
-  ### Note on webpack Treeshaking {#note-on-webpack-treeshaking}
+  ### Webpack Treeshaking Hakkında Not {#note-on-webpack-treeshaking}
 
-  Because `defineComponent()` is a function call, it could look like that it would produce side-effects to some build tools, e.g. webpack. This will prevent the component from being tree-shaken even when the component is never used.
+  Çünkü `defineComponent()`, bir işlev çağrısı olduğu için, bazı yapı araçlarına, örneğin webpack'e yan etkiler üretebilecekmiş gibi görünebilir. Bu, bileşenin asla kullanılmadığı durumda bile bileşenin tree-shaken olmasını engelleyebilir.
 
-  To tell webpack that this function call is safe to be tree-shaken, you can add a `/*#__PURE__*/` comment notation before the function call:
+  Webpack'e bu işlev çağrısının tree-shaken için güvenli olduğunu söylemek için işlev çağrısından önce `/*#__PURE__*/` yorum notasyonunu ekleyebilirsiniz:
 
   ```js
   export default /*#__PURE__*/ defineComponent(/* ... */)
   ```
 
-  Note this is not necessary if you are using Vite, because Rollup (the underlying production bundler used by Vite) is smart enough to determine that `defineComponent()` is in fact side-effect-free without the need for manual annotations.
+  Bu, Vite kullanıyorsanız gerekli değildir, çünkü Vite tarafından kullanılan temel üretim sarmalayıcısı olan Rollup, `defineComponent()`'in gerçekte yan etki içermeyen bir işlev olduğunu belirlemekte yeterince akıllıdır ve manuel açıklamalara ihtiyaç duymaz.
 
-- **See also** [Guide - Using Vue with TypeScript](/guide/typescript/overview#general-usage-notes)
+- **Ayrıca bakınız** [Rehber - Vue'u TypeScript ile Kullanma](/guide/typescript/overview#general-usage-notes)
 
 ## defineAsyncComponent() {#defineasynccomponent}
 
-Define an async component which is lazy loaded only when it is rendered. The argument can either be a loader function, or an options object for more advanced control of the loading behavior.
+Yalnızca render edildiğinde yüklenen bir asenkron bileşeni tanımlar. Argüman, ya bir yükleyici işlevi ya da yükleme davranışını daha fazla kontrol etmek için daha gelişmiş seçenekler içeren bir seçenek nesnesi olabilir.
 
-- **Type**
+- **Tür**
 
   ```ts
   function defineAsyncComponent(
@@ -222,13 +223,13 @@ Define an async component which is lazy loaded only when it is rendered. The arg
   }
   ```
 
-- **See also** [Guide - Async Components](/guide/components/async)
+- **Ayrıca bakınız** [Rehber - Asenkron Bileşenler](/guide/components/async)
 
 ## defineCustomElement() {#definecustomelement}
 
-This method accepts the same argument as [`defineComponent`](#definecomponent), but instead returns a native [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) class constructor.
+Bu yöntem, [`defineComponent`](#definecomponent) ile aynı argümanı kabul eder, ancak yerine bir yerel [Özel Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) sınıf yapıcısını döndürür.
 
-- **Type**
+- **Tür**
 
   ```ts
   function defineCustomElement(
@@ -240,15 +241,15 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
   }
   ```
 
-  > Type is simplified for readability.
+  > Okunabilirlik için tür basitleştirilmiştir.
 
-- **Details**
+- **Detaylar**
 
-  In addition to normal component options, `defineCustomElement()` also supports a special option `styles`, which should be an array of inlined CSS strings, for providing CSS that should be injected into the element's shadow root.
+  Normal bileşen seçeneklerine ek olarak, `defineCustomElement()` ayrıca, öğenin gölge köküne enjekte edilmesi gereken bir dizi iç içe geçmiş CSS dizesi sağlamak için `styles` adlı özel bir seçeneği de destekler.
 
-  The return value is a custom element constructor that can be registered using [`customElements.define()`](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define).
+  Dönüş değeri, [`customElements.define()`](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define) kullanılarak kaydedilebilen bir özel öğe yapıcısıdır.
 
-- **Example**
+- **Örnek**
 
   ```js
   import { defineCustomElement } from 'vue'
@@ -260,9 +261,9 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
   // Register the custom element.
   customElements.define('my-vue-element', MyVueElement)
   ```
+  
+- **Ayrıca bakınız**
 
-- **See also**
+  - [Rehber - Vue ile Özel Elementler Oluşturma](/guide/extras/web-components#building-custom-elements-with-vue)
 
-  - [Guide - Building Custom Elements with Vue](/guide/extras/web-components#building-custom-elements-with-vue)
-
-  - Also note that `defineCustomElement()` requires [special config](/guide/extras/web-components#sfc-as-custom-element) when used with Single-File Components.
+  - Ayrıca, `defineCustomElement()`, Tek Dosya Bileşenleri ile kullanıldığında [özel yapılandırmayı](/guide/extras/web-components#sfc-as-custom-element) gerektirir.
