@@ -68,7 +68,7 @@ Uygulama örneğini bir konteyner öğesine monte eder.
   app.mount('#app')
   ```
 
-  Can also mount to an actual DOM element:
+  Gerçek bir DOM öğesine de monte edilebilir:
 
   ```js
   app.mount(document.body.firstChild)
@@ -76,9 +76,9 @@ Uygulama örneğini bir konteyner öğesine monte eder.
 
 ## app.unmount() {#app-unmount}
 
-Unmounts a mounted application instance, triggering the unmount lifecycle hooks for all components in the application's component tree.
+Monte edilmiş bir uygulama örneğini kaldırır ve uygulamanın bileşen ağacındaki tüm bileşenler için unmount yaşam döngü kancalarını tetikler.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface App {
@@ -88,9 +88,9 @@ Unmounts a mounted application instance, triggering the unmount lifecycle hooks 
 
 ## app.component() {#app-component}
 
-Registers a global component if passing both a name string and a component definition, or retrieves an already registered one if only the name is passed.
+Eğer hem bir ad dizesi hem de bir bileşen tanımı iletiliyorsa, global bir bileşeni kaydeder; sadece ad geçiyorsa, zaten kaydedilmiş bir bileşeni alır.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface App {
@@ -99,7 +99,7 @@ Registers a global component if passing both a name string and a component defin
   }
   ```
 
-- **Example**
+- **Örnek**
 
   ```js
   import { createApp } from 'vue'
@@ -115,13 +115,13 @@ Registers a global component if passing both a name string and a component defin
   const MyComponent = app.component('my-component')
   ```
 
-- **See also** [Component Registration](/guide/components/registration)
+- **Ayrıca bakınız** [Bileşen Kaydı](/guide/components/registration)
 
 ## app.directive() {#app-directive}
 
-Registers a global custom directive if passing both a name string and a directive definition, or retrieves an already registered one if only the name is passed.
+Eğer hem bir ad dizesi hem de bir yönerge tanımı iletiliyorsa, global bir özel yönerge kaydedilir; sadece ad geçiyorsa, zaten kaydedilmiş bir yönergeyi alır.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface App {
@@ -130,7 +130,7 @@ Registers a global custom directive if passing both a name string and a directiv
   }
   ```
 
-- **Example**
+- **Örnek**
 
   ```js
   import { createApp } from 'vue'
@@ -153,13 +153,13 @@ Registers a global custom directive if passing both a name string and a directiv
   const myDirective = app.directive('my-directive')
   ```
 
-- **See also** [Custom Directives](/guide/reusability/custom-directives)
+- **Ayrıca bakınız** [Özel Yönergeler](/guide/reusability/custom-directives)
 
 ## app.use() {#app-use}
 
-Installs a [plugin](/guide/reusability/plugins).
+Bir eklenti yükler [plugin](/guide/reusability/plugins).
 
-- **Type**
+- **Tip**
 
   ```ts
   interface App {
@@ -167,15 +167,15 @@ Installs a [plugin](/guide/reusability/plugins).
   }
   ```
 
-- **Details**
+- **Detay**
 
-  Expects the plugin as the first argument, and optional plugin options as the second argument.
+  İlk argüman olarak eklentiyi ve isteğe bağlı eklenti seçeneklerini ikinci argüman olarak bekler.
 
-  The plugin can either be an object with an `install()` method, or just a function that will be used as the `install()` method. The options (second argument of `app.use()`) will be passed along to the plugin's `install()` method.
+  Eklenti, install() yöntemine sahip bir nesne olabilir veya yalnızca install() yöntemi olarak kullanılacak bir işlev olabilir. Seçenekler (app.use()'nin ikinci argümanı) eklentinin install() yöntemine iletilir.
 
-  When `app.use()` is called on the same plugin multiple times, the plugin will be installed only once.
+  Aynı eklenti üzerinde app.use() birden fazla kez çağrılırsa, eklenti yalnızca bir kez yüklenir.
 
-- **Example**
+- **Örnek**
 
   ```js
   import { createApp } from 'vue'
@@ -188,19 +188,19 @@ Installs a [plugin](/guide/reusability/plugins).
   app.use(MyPlugin)
   ```
 
-- **See also** [Plugins](/guide/reusability/plugins)
+- **Ayrıca Bakınız** [Plugins](/guide/reusability/plugins)
 
 ## app.mixin() {#app-mixin}
 
-Applies a global mixin (scoped to the application). A global mixin applies its included options to every component instance in the application.
+Global bir mixin uygular (uygulama kapsamında). Bir global mixin, içerdiği seçenekleri uygulamadaki her bileşen örneğine uygular.
 
-:::warning Not Recommended
-Mixins are supported in Vue 3 mainly for backwards compatibility, due to their widespread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
+:::warning Tavsiye Edilmez
+Mixin'ler, özellikle global mixin'ler, genellikle ekosistem kütüphanelerinde yaygın olarak kullanıldığından, Vue 3'te özellikle geriye dönük uyumluluk için desteklenmektedir. Mixin'lerin kullanımı, özellikle global mixin'lerin kullanımı, uygulama kodunda kaçınılmalıdır.
 
-For logic reuse, prefer [Composables](/guide/reusability/composables) instead.
+Mantık yeniden kullanımı için [Composables](/guide/reusability/composables) tercih edilmelidir
 :::
 
-- **Type**
+- **Tip**
 
   ```ts
   interface App {
@@ -210,9 +210,9 @@ For logic reuse, prefer [Composables](/guide/reusability/composables) instead.
 
 ## app.provide() {#app-provide}
 
-Provide a value that can be injected in all descendant components within the application.
+Uygulama içindeki tüm alt bileşenlere enjekte edilebilecek bir değer sağlar.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface App {
@@ -220,11 +220,11 @@ Provide a value that can be injected in all descendant components within the app
   }
   ```
 
-- **Details**
+- **Detaylar**
 
-  Expects the injection key as the first argument, and the provided value as the second. Returns the application instance itself.
+  Enjeksiyon anahtarını birinci argüman olarak bekler ve sağlanan değeri ikinci argüman olarak alır. Uygulama örneğini kendisi döndürür.
 
-- **Example**
+- **Örnek**
 
   ```js
   import { createApp } from 'vue'
@@ -234,7 +234,7 @@ Provide a value that can be injected in all descendant components within the app
   app.provide('message', 'hello')
   ```
 
-  Inside a component in the application:
+  Uygulama içinde bir bileşenin içinde:
 
   <div class="composition-api">
 
@@ -262,16 +262,16 @@ Provide a value that can be injected in all descendant components within the app
 
   </div>
 
-- **See also**
+- **Ayrıca Bakınız**
   - [Provide / Inject](/guide/components/provide-inject)
   - [App-level Provide](/guide/components/provide-inject#app-level-provide)
   - [app.runWithContext()](#app-runwithcontext)
 
 ## app.runWithContext()<sup class="vt-badge" data-text="3.3+" /> {#app-runwithcontext}
 
-Execute a callback with the current app as injection context.
+Mevcut uygulamayı enjeksiyon bağlamı olarak kullanarak bir geri çağrıyı yürütür.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface App {
@@ -279,11 +279,11 @@ Execute a callback with the current app as injection context.
   }
   ```
 
-- **Details**
+- **Detaylar**
 
-  Expects a callback function and runs the callback immediately. During the synchronous call of the callback,  `inject()` calls are able to look up injections from the values provided by the current app, even when there is no current active component instance. The return value of the callback will also be returned.
+  Bir geri çağrı işlevini bekler ve geri çağrıyı hemen çalıştırır. Geri çağrının senkron çağrısı sırasında, `inject()` çağrıları mevcut etkin bileşen örneği olmadığında bile mevcut uygulama tarafından sağlanan değerlerden enjeksiyonları arayabilir. Geri çağrının dönüş değeri de döndürülür.
 
-- **Example**
+- **Örnek**
 
   ```js
   import { inject } from 'vue'
@@ -299,9 +299,9 @@ Execute a callback with the current app as injection context.
 
 ## app.version {#app-version}
 
-Provides the version of Vue that the application was created with. This is useful inside [plugins](/guide/reusability/plugins), where you might need conditional logic based on different Vue versions.
+Uygulamanın oluşturulduğu Vue sürümünü sağlar. Bu, [plugins](/guide/reusability/plugins), kullanışlıdır, farklı Vue sürümlerine dayalı koşullu mantık gerekebileceği durumlarda.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface App {
@@ -309,9 +309,9 @@ Provides the version of Vue that the application was created with. This is usefu
   }
   ```
 
-- **Example**
+- **Örnek**
 
-  Performing a version check inside a plugin:
+  Bir eklenti içinde sürüm kontrolü yapma:
 
   ```js
   export default {
@@ -324,11 +324,11 @@ Provides the version of Vue that the application was created with. This is usefu
   }
   ```
 
-- **See also** [Global API - version](/api/general#version)
+- **Ayrıca Bakınız** [Global API - version](/api/general#version)
 
 ## app.config {#app-config}
 
-Every application instance exposes a `config` object that contains the configuration settings for that application. You can modify its properties (documented below) before mounting your application.
+Her uygulama örneği, uygulama için yapılandırma ayarlarını içeren bir `config` nesnesini ortaya çıkarır. Uygulamanızı monte etmeden önce bu özelliklerini (aşağıda belgelenmiştir) değiştirebilirsiniz.
 
 ```js
 import { createApp } from 'vue'
@@ -340,9 +340,9 @@ console.log(app.config)
 
 ## app.config.errorHandler {#app-config-errorhandler}
 
-Assign a global handler for uncaught errors propagating from within the application.
+Uygulama içinden yayılan yakalanmamış hatalar için global bir işleyici atar.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface AppConfig {
@@ -356,21 +356,21 @@ Assign a global handler for uncaught errors propagating from within the applicat
   }
   ```
 
-- **Details**
+- **Detaylar**
 
-  The error handler receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+  Hata işleyici, üç argüman alır: hata, hatayı tetikleyen bileşen örneği ve hatanın kaynak türünü belirten bir bilgi dizesi.
 
-  It can capture errors from the following sources:
+Aşağıdaki kaynaklardan hataları yakalayabilir:
 
-  - Component renders
-  - Event handlers
-  - Lifecycle hooks
-  - `setup()` function
-  - Watchers
-  - Custom directive hooks
-  - Transition hooks
+- Bileşen render işlemleri
+- Olay işleyicileri
+- Yaşam döngü kancaları
+- `setup()` fonksiyonu
+- İzleyiciler (watchers)
+- Özel yönerge kancaları
+- Geçiş kancaları
 
-- **Example**
+- **Örnek**
 
   ```js
   app.config.errorHandler = (err, instance, info) => {
@@ -380,9 +380,9 @@ Assign a global handler for uncaught errors propagating from within the applicat
 
 ## app.config.warnHandler {#app-config-warnhandler}
 
-Assign a custom handler for runtime warnings from Vue.
+Vue'dan gelen çalışma zamanı uyarıları için özel bir işleyici atar.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface AppConfig {
@@ -394,17 +394,17 @@ Assign a custom handler for runtime warnings from Vue.
   }
   ```
 
-- **Details**
+- **Detaylar**
 
-  The warning handler receives the warning message as the first argument, the source component instance as the second argument, and a component trace string as the third.
+  Uyarı işleyicisi, uyarı mesajını birinci argüman olarak, kaynak bileşen örneğini ikinci argüman olarak ve bileşen izini dizesini üçüncü argüman olarak alır.
 
-  It can be used to filter out specific warnings to reduce console verbosity. All Vue warnings should be addressed during development, so this is only recommended during debug sessions to focus on specific warnings among many, and should be removed once the debugging is done.
+Belirli uyarıları filtrelemek ve konsol karmaşıklığını azaltmak için kullanılabilir. Tüm Vue uyarıları geliştirme sırasında ele alınmalıdır, bu nedenle bu yalnızca bir hata ayıklama oturumları sırasında birçok uyarı arasında belirli uyarılara odaklanmak için önerilir ve hata ayıklama işlemi tamamlandıktan sonra kaldırılmalıdır.
 
   :::tip
-  Warnings only work during development, so this config is ignored in production mode.
+  Uyarılar yalnızca geliştirme sırasında çalışır, bu nedenle bu yapılandırma üretim modunda görmezden gelinir.
   :::
 
-- **Example**
+- **Örnek**
 
   ```js
   app.config.warnHandler = (msg, instance, trace) => {
@@ -414,37 +414,37 @@ Assign a custom handler for runtime warnings from Vue.
 
 ## app.config.performance {#app-config-performance}
 
-Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
+Tarayıcı geliştirici aracı performans/timeline panelinde bileşen başlatma, derleme, render ve yama performans izleme özelliğini etkinleştirmek için bunu true olarak ayarlayın. Yalnızca geliştirme modunda ve [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API'sini destekleyen tarayıcılarda çalışır.
 
-- **Type:** `boolean`
+- **Tip:** `boolean`
 
-- **See also** [Guide - Performance](/guide/best-practices/performance)
+- **Ayrıca Bakınız** [Guide - Performance](/guide/best-practices/performance)
 
 ## app.config.compilerOptions {#app-config-compileroptions}
 
-Configure runtime compiler options. Values set on this object will be passed to the in-browser template compiler and affect every component in the configured app. Note you can also override these options on a per-component basis using the [`compilerOptions` option](/api/options-rendering#compileroptions).
+Çalışma zamanı derleyici seçeneklerini yapılandırın. Bu nesneye ayarlanan değerler, tarayıcıda çalışan şablondan derleyiciye iletilir ve yapılandırılmış uygulamadaki her bileşeni etkiler. Ayrıca, bu seçenekleri her bir bileşen için [`compilerOptions` option](/api/options-rendering#compileroptions) kullanarak geçersiz kılabilirsiniz.
 
-::: warning Important
-This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). If you are using the runtime-only build with a build setup, compiler options must be passed to `@vue/compiler-dom` via build tool configurations instead.
+::: warning Önemli
+Bu yapılandırma seçeneği, tam derleme kullanıldığında (yani, tarayıcıda şablonları derleyebilen bağımsız `vue.js`), sadece saygı görmektedir. Runtime-only derleme ile bir yapı kurulumu kullanıyorsanız, derleyici seçenekleri yerine derleme aracı yapılandırmaları ile `@vue/compiler-dom`'a iletilmelidir.
 
-- For `vue-loader`: [pass via the `compilerOptions` loader option](https://vue-loader.vuejs.org/options.html#compileroptions). Also see [how to configure it in `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
+- `vue-loader` için: [pass via the `compilerOptions` loader option](https://vue-loader.vuejs.org/options.html#compileroptions). Also see [how to configure it in `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
-- For `vite`: [pass via `@vitejs/plugin-vue` options](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options).
+- `vite` içim: [pass via `@vitejs/plugin-vue` options](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options).
   :::
 
 ### app.config.compilerOptions.isCustomElement {#app-config-compileroptions-iscustomelement}
 
-Specifies a check method to recognize native custom elements.
+Yerel özel öğeleri tanımak için bir kontrol yöntemi belirtir.
 
-- **Type:** `(tag: string) => boolean`
+- **Tip:** `(tag: string) => boolean`
 
-- **Details**
+- **Detaylar**
 
-  Should return `true` if the tag should be treated as a native custom element. For a matched tag, Vue will render it as a native element instead of attempting to resolve it as a Vue component.
+  Eğer etiketin bir yerel özel öğe olarak ele alınması gerekiyorsa, `true` değerini döndürmelidir. Eşleşen bir etiket için, Vue, onu bir Vue bileşeni olarak çözmeye çalışmak yerine bir yerel öğe olarak render eder.
 
-  Native HTML and SVG tags don't need to be matched in this function - Vue's parser recognizes them automatically.
+  Bu fonksiyonda HTML ve SVG'nin yerel etiketleri eşleştirilmek zorunda değildir - Vue'nun ayrıştırıcısı bunları otomatik olarak tanır.
 
-- **Example**
+- **Örnek**
 
   ```js
   // treat all tags starting with 'ion-' as custom elements
@@ -453,27 +453,27 @@ Specifies a check method to recognize native custom elements.
   }
   ```
 
-- **See also** [Vue and Web Components](/guide/extras/web-components)
+- **See also** [Vue ve Web Components](/guide/extras/web-components)
 
 ### app.config.compilerOptions.whitespace {#app-config-compileroptions-whitespace}
 
-Adjusts template whitespace handling behavior.
+Şablon boşluk işleme davranışını ayarlar.
 
-- **Type:** `'condense' | 'preserve'`
+- **Tip:** `'condense' | 'preserve'`
 
-- **Default:** `'condense'`
+- **Varsayılan:** `'condense'`
 
-- **Details**
+- **Detaylar**
 
-  Vue removes / condenses whitespace characters in templates to produce more efficient compiled output. The default strategy is "condense", with the following behavior:
+  Vue, şablonlardaki boşluk karakterlerini daha verimli derlenmiş çıktı üretmek için kaldırır / sıkıştırır. Varsayılan strateji "condense" olup, şu davranışları içerir:
 
-  1. Leading / ending whitespace characters inside an element are condensed into a single space.
-  2. Whitespace characters between elements that contain newlines are removed.
-  3. Consecutive whitespace characters in text nodes are condensed into a single space.
+  1. Bir öğenin içindeki baştaki / sondaki boşluk karakterleri tek bir boşluğa sıkıştırılır.
+  2. Yeni satırlar içeren öğeler arasındaki boşluk karakterleri kaldırılır.
+  3. Metin düğümlerindeki ardışık boşluk karakterleri tek bir boşluğa sıkıştırılır.
 
-  Setting this option to `'preserve'` will disable (2) and (3).
+  Bu seçeneği `'preserve'` olarak ayarlamak, (2) ve (3)'ü devre dışı bırakacaktır.
 
-- **Example**
+- **Örnek**
 
   ```js
   app.config.compilerOptions.whitespace = 'preserve'
@@ -481,17 +481,17 @@ Adjusts template whitespace handling behavior.
 
 ### app.config.compilerOptions.delimiters {#app-config-compileroptions-delimiters}
 
-Adjusts the delimiters used for text interpolation within the template.
+Şablonda metin interpolasyonu için kullanılan ayraçları ayarlar.
 
-- **Type:** `[string, string]`
+- **Tip:** `[string, string]`
 
-- **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
+- **Varsayılan:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
 
-- **Details**
+- **Detaylar**
 
-  This is typically used to avoid conflicting with server-side frameworks that also use mustache syntax.
+  Bu genellikle mustache sözdizimini kullanan sunucu taraflı çerçevelerle çakışmayı önlemek için kullanılır.
 
-- **Example**
+- **Örnek**
 
   ```js
   // Delimiters changed to ES6 template string style
@@ -500,17 +500,17 @@ Adjusts the delimiters used for text interpolation within the template.
 
 ### app.config.compilerOptions.comments {#app-config-compileroptions-comments}
 
-Adjusts treatment of HTML comments in templates.
+Şablonlardaki HTML yorumlarının işlemesini ayarlar.
 
-- **Type:** `boolean`
+- **Tip:** `boolean`
 
-- **Default:** `false`
+- **Varsayılan:** `false`
 
-- **Details**
+- **Detaylar**
 
-  By default, Vue will remove the comments in production. Setting this option to `true` will force Vue to preserve comments even in production. Comments are always preserved during development. This option is typically used when Vue is used with other libraries that rely on HTML comments.
+  Vue, varsayılan olarak üretimde yorumları kaldırır. Bu seçeneği `true` olarak ayarlamak, Vue'nun üretimde bile yorumları korumasını zorlar. Yorumlar her zaman geliştirme sırasında korunur. Bu seçenek, Vue'nun HTML yorumlarına dayanan diğer kütüphanelerle kullanıldığında genellikle kullanılır.
 
-- **Example**
+- **Örnek**
 
   ```js
   app.config.compilerOptions.comments = true
@@ -518,9 +518,9 @@ Adjusts treatment of HTML comments in templates.
 
 ## app.config.globalProperties {#app-config-globalproperties}
 
-An object that can be used to register global properties that can be accessed on any component instance inside the application.
+Herhangi bir bileşen örneğinde erişilebilen global özellikleri kaydetmek için kullanılabilen bir nesne.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface AppConfig {
@@ -528,19 +528,19 @@ An object that can be used to register global properties that can be accessed on
   }
   ```
 
-- **Details**
+- **Detaylar**
 
-  This is a replacement of Vue 2's `Vue.prototype` which is no longer present in Vue 3. As with anything global, this should be used sparingly.
+  Bu, Vue 3'te artık bulunmayan Vue 2'nin `Vue.prototype`'nin yerine geçer. Her şey gibi, bu global özelliklerin kullanımı dikkatlice yapılmalıdır.
 
-  If a global property conflicts with a component’s own property, the component's own property will have higher priority.
+  Eğer global bir özellik, bir bileşenin kendi özelliği ile çakışıyorsa, bileşenin kendi özelliği öncelikli olacaktır.
 
-- **Usage**
+- **Kullanımı**
 
   ```js
   app.config.globalProperties.msg = 'hello'
   ```
 
-  This makes `msg` available inside any component template in the application, and also on `this` of any component instance:
+  Bu, `msg`'yi uygulamadaki herhangi bir bileşen şablonunda ve aynı zamanda herhangi bir bileşen örneğinin `this`'inde kullanılabilir hale getirir:
 
   ```js
   export default {
@@ -550,13 +550,13 @@ An object that can be used to register global properties that can be accessed on
   }
   ```
 
-- **See also** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
+- **Ayrıca Bakınız** [Rehber - Global Özellikleri Artırma](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies {#app-config-optionmergestrategies}
 
-An object for defining merging strategies for custom component options.
+Özel bileşen seçenekleri için birleştirme stratejilerini tanımlamak için bir nesne.
 
-- **Type**
+- **Tip**
 
   ```ts
   interface AppConfig {
@@ -566,15 +566,15 @@ An object for defining merging strategies for custom component options.
   type OptionMergeFunction = (to: unknown, from: unknown) => any
   ```
 
-- **Details**
+- **Detylar**
 
-  Some plugins / libraries add support for custom component options (by injecting global mixins). These options may require special merging logic when the same option needs to be "merged" from multiple sources (e.g. mixins or component inheritance).
+  Bazı eklentiler / kütüphaneler, özel bileşen seçeneklerini desteklemek için (global mixin'ler enjekte ederek) ekler. Bu seçenekler, aynı seçenek birden çok kaynaktan "birleştirilmelİ" olduğunda (örneğin, mixin'ler veya bileşen mirası), özel birleştirme mantığına ihtiyaç duyabilir.
 
-  A merge strategy function can be registered for a custom option by assigning it on the `app.config.optionMergeStrategies` object using the option's name as the key.
+  Bir özel seçenek için birleştirme stratejisi fonksiyonu, bu fonksiyonu seçeneğin adını anahtar olarak kullanarak `app.config.optionMergeStrategies` nesnesine atayarak kaydedilebilir.
 
-  The merge strategy function receives the value of that option defined on the parent and child instances as the first and second arguments, respectively.
+  Birleştirme stratejisi fonksiyonu, sırasıyla birinci ve ikinci argümanlar olarak, bu seçeneğin değerini tanımlayan üst örnekler üzerinde tanımlanmış olan değeri alır.
 
-- **Example**
+- **Örnek**
 
   ```js
   const app = createApp({
@@ -601,4 +601,4 @@ An object for defining merging strategies for custom component options.
   // logs 'Hello Vue'
   ```
 
-- **See also** [Component Instance - `$options`](/api/component-instance#options)
+- **Ayrıca Bakınız** [Component Instance - `$options`](/api/component-instance#options)
