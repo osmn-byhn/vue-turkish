@@ -1,117 +1,117 @@
-# Built-in Directives {#built-in-directives}
+# Dahili direktifler {#built-in-directives}
 
 ## v-text {#v-text}
 
-Update the element's text content.
+Elementin metin içeriğini güncelle.
 
-- **Expects:** `string`
+- **Parametre olarak alır:** `string`
 
-- **Details**
+- **Detaylar**
 
-  `v-text` works by setting the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) property, so it will overwrite any existing content inside the element. If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/essentials/template-syntax#text-interpolation) instead.
+  `v-text`, elementin [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) özelliğini ayarlayarak çalışır, bu nedenle elementin içindeki mevcut içeriği üzerine yazar. Eğer `textContent`'in bir kısmını güncellemeniz gerekiyorsa, bunun yerine [mustache interpolations](/guide/essentials/template-syntax#text-interpolation) kullanmalısınız.
 
-- **Example**
+- **Örneğin**
 
   ```vue-html
   <span v-text="msg"></span>
-  <!-- same as -->
+  <!-- benzeri -->
   <span>{{msg}}</span>
   ```
 
-- **See also** [Template Syntax - Text Interpolation](/guide/essentials/template-syntax#text-interpolation)
+- **Ayrıca Bakınız** [Şablon Sözdizimi - Metin İnterpolasyonu](/guide/essentials/template-syntax#text-interpolation)
 
 ## v-html {#v-html}
 
-Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML).
+Elementin  [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) özelliğini güncelle.
 
-- **Expects:** `string`
+- **Parametre olarak alır:** `string`
 
-- **Details**
+- **Detaylar**
 
-  Contents of `v-html` are inserted as plain HTML - Vue template syntax will not be processed. If you find yourself trying to compose templates using `v-html`, try to rethink the solution by using components instead.
+  `v-html` içeriği düz HTML olarak eklenir - Vue şablon sözdizimi işlenmez. Eğer `v-html` kullanarak şablonlar oluşturmaya çalışıyorsanız, bunun yerine bileşenler kullanarak çözümü tekrar düşünmeye çalışın.
 
-  ::: warning Security Note
-  Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
-  :::
+::: warning Güvenlik Notu
+Websitesinde dinamik olarak istediğiniz HTML'i oluşturmak çok tehlikeli olabilir çünkü bu, kolayca [XSS saldırılarına](https://en.wikipedia.org/wiki/Cross-site_scripting) yol açabilir. Sadece `v-html`'i güvenilir içerikte kullanın ve asla kullanıcı tarafından sağlanan içerikte kullanmayın.
+:::
 
-  In [Single-File Components](/guide/scaling-up/sfc), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](./sfc-css-features#css-modules) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
+[Tek Dosya Bileşenleri](/guide/scaling-up/sfc) içinde, `scoped` stiller, `v-html` içindeki içeriğe uygulanmaz, çünkü bu HTML, Vue'un şablon derleyicisi tarafından işlenmez. `v-html` içeriğini scoped CSS ile hedeflemek istiyorsanız, bunun yerine [CSS modülleri](./sfc-css-features#css-modules) veya BEM gibi manuel bir kapsam stratejisi ile ek bir global `<style>` öğesi kullanabilirsiniz.
 
-- **Example**
+- **Örneğin**
 
   ```vue-html
   <div v-html="html"></div>
   ```
 
-- **See also** [Template Syntax - Raw HTML](/guide/essentials/template-syntax#raw-html)
+- **Ayrıca Bakınız** [Şablon Sözdizimi - Raw HTML](/guide/essentials/template-syntax#raw-html)
 
 ## v-show {#v-show}
 
-Toggle the element's visibility based on the truthy-ness of the expression value.
+Ifade değerinin doğruluğuna bağlı olarak elementin görünürlüğünü açıp kapatır.
 
-- **Expects:** `any`
+- **Parametre olarak alır:** `any`
 
-- **Details**
+- **Detaylar**
 
-  `v-show` works by setting the `display` CSS property via inline styles, and will try to respect the initial `display` value when the element is visible. It also triggers transitions when its condition changes.
+  `v-show`, iç içe stiller aracılığıyla `display` CSS özelliğini ayarlayarak çalışır ve element görünür olduğunda başlangıçtaki `display` değerini korumaya çalışır. Aynı zamanda durumu değiştiğinde geçişleri tetikler.
 
-- **See also** [Conditional Rendering - v-show](/guide/essentials/conditional#v-show)
+- **See also** [Koşullu Renderlama - v-show](/guide/essentials/conditional#v-show)
 
 ## v-if {#v-if}
 
-Conditionally render an element or a template fragment based on the truthy-ness of the expression value.
+İfade değerinin doğruluğuna bağlı olarak bir öğe veya şablon parçasını koşullu olarak renderla.
 
-- **Expects:** `any`
+- **Parametre olarak alır:** `any`
 
-- **Details**
+- **Detaylar**
 
-  When a `v-if` element is toggled, the element and its contained directives / components are destroyed and re-constructed. If the initial condition is falsy, then the inner content won't be rendered at all.
+  `v-if` öğesi devre dışı bırakıldığında, öğe ve içindeki direktifler / bileşenler yok edilir ve yeniden oluşturulur. Başlangıç durumu falsy ise, içerik hiç render edilmez.
 
-  Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
+  Text veya birden fazla öğe içeren bir koşullu bloğu belirtmek için `<template>` üzerinde kullanılabilir.
 
-  This directive triggers transitions when its condition changes.
+  Bu direktif, durumu değiştikçe geçişleri tetikler.
 
-  When used together, `v-if` has a higher priority than `v-for`. We don't recommend using these two directives together on one element — see the [list rendering guide](/guide/essentials/list#v-for-with-v-if) for details.
+  Birlikte kullanıldığında, `v-if`, `v-for`'dan daha yüksek önceliğe sahiptir. Bu iki direktifi bir eleman üzerinde birlikte kullanmayı önermiyoruz — detaylar için [liste renderleme rehberine](/guide/essentials/list#v-for-with-v-if) bakın.
 
-- **See also** [Conditional Rendering - v-if](/guide/essentials/conditional#v-if)
+- **Ayrıca Bakınız** [Koşullu Renderlama - v-if](/guide/essentials/conditional#v-if)
 
 ## v-else {#v-else}
 
-Denote the "else block" for `v-if` or a `v-if` / `v-else-if` chain.
+`v-if` veya `v-if` / `v-else-if` zinciri için "else bloğu"nu belirtir.
 
-- **Does not expect expression**
+- **İfade beklemiyor**
 
-- **Details**
+- **Detaylar**
 
-  - Restriction: previous sibling element must have `v-if` or `v-else-if`.
+  - Kısıtlama: Önceki kardeş öğenin `v-if` veya `v-else-if` içermesi gerekir.
 
-  - Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
+- `<template>` üzerinde kullanılarak, yalnızca metin veya birden fazla öğe içeren bir koşullu bloğu belirtmek için kullanılabilir.
 
-- **Example**
+- **Örneğin**
 
   ```vue-html
   <div v-if="Math.random() > 0.5">
-    Now you see me
+    Şu an beni görüyorsun
   </div>
   <div v-else>
-    Now you don't
+    Şu an görmüyorsun cano
   </div>
   ```
 
-- **See also** [Conditional Rendering - v-else](/guide/essentials/conditional#v-else)
+- **Ayrıca Bakınız** [Koşullu Renderlama - v-else](/guide/essentials/conditional#v-else)
 
 ## v-else-if {#v-else-if}
 
-Denote the "else if block" for `v-if`. Can be chained.
+`v-if` için "else if bloğu"nu belirtir. Zincirlenebilir.
 
-- **Expects:** `any`
+- **Parametre olarak alır:** `any`
 
-- **Details**
+- **Detaylar**
 
-  - Restriction: previous sibling element must have `v-if` or `v-else-if`.
+  - Kısıtlama: Önceki kardeş öğenin `v-if` veya `v-else-if` içermesi gerekir.
 
-  - Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
+- `<template>` üzerinde kullanılarak, yalnızca metin veya birden fazla öğe içeren bir koşullu bloğu belirtmek için kullanılabilir.
 
-- **Example**
+- **Örneğin**
 
   ```vue-html
   <div v-if="type === 'A'">
@@ -124,21 +124,21 @@ Denote the "else if block" for `v-if`. Can be chained.
     C
   </div>
   <div v-else>
-    Not A/B/C
+    A/B/C Yok gardaş
   </div>
   ```
 
-- **See also** [Conditional Rendering - v-else-if](/guide/essentials/conditional#v-else-if)
+- **Ayrıca Bakınız** [Koşullu Renderlama - v-else-if](/guide/essentials/conditional#v-else-if)
 
 ## v-for {#v-for}
 
-Render the element or template block multiple times based on the source data.
+Elementi veya şablon bloğunu kaynak verilerine bağlı olarak birden çok kez renderlar.
 
-- **Expects:** `Array | Object | number | string | Iterable`
+- **Parametre olarak alır:** `Array | Object | number | string | Iterable`
 
-- **Details**
+- **Detaylar**
 
-  The directive's value must use the special syntax `alias in expression` to provide an alias for the current element being iterated on:
+  Directivenin değeri, üzerinde yineleme yapılan geçerli öğe için bir takma ad sağlamak için `alias in expression` özel sözdizimini kullanmalıdır:
 
   ```vue-html
   <div v-for="item in items">
@@ -146,7 +146,7 @@ Render the element or template block multiple times based on the source data.
   </div>
   ```
 
-  Alternatively, you can also specify an alias for the index (or the key if used on an Object):
+  Alternatif olarak, dizin için bir takma ad da belirtebilirsiniz (veya bir nesne üzerinde kullanılıyorsa anahtar):
 
   ```vue-html
   <div v-for="(item, index) in items"></div>
@@ -154,7 +154,7 @@ Render the element or template block multiple times based on the source data.
   <div v-for="(value, name, index) in object"></div>
   ```
 
-  The default behavior of `v-for` will try to patch the elements in-place without moving them. To force it to reorder elements, you should provide an ordering hint with the `key` special attribute:
+  `v-for`'un varsayılan davranışı, öğeleri yerinde yamalamaya çalışır ve onları taşımaz. Öğeleri yeniden sıralamak için, `key` özel özniteliği ile bir sıralama ipucu sağlamalısınız:
 
   ```vue-html
   <div v-for="item in items" :key="item.id">
@@ -162,10 +162,10 @@ Render the element or template block multiple times based on the source data.
   </div>
   ```
 
-  `v-for` can also work on values that implement the [Iterable Protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), including native `Map` and `Set`.
+  `v-for`, [İterasyon Protokolü](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol)'ü uygulayan değerler üzerinde de çalışabilir, bunlar arasında yerel `Map` ve `Set` de bulunur.
 
-- **See also**
-  - [List Rendering](/guide/essentials/list)
+- **Ayrıca Bakınız**
+  - [Liste Renderlama](/guide/essentials/list)
 
 ## v-on {#v-on}
 
@@ -173,7 +173,7 @@ Attach an event listener to the element.
 
 - **Shorthand:** `@`
 
-- **Expects:** `Function | Inline Statement | Object (without argument)`
+- **Parametre olarak alır:** `Function | Inline Statement | Object (without argument)`
 
 - **Argument:** `event` (optional if using Object syntax)
 
@@ -259,7 +259,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
 - **Shorthand:** `:` or `.` (when using `.prop` modifier)
 
-- **Expects:** `any (with argument) | Object (without argument)`
+- **Parametre olarak alır:** `any (with argument) | Object (without argument)`
 
 - **Argument:** `attrOrProp (optional)`
 
@@ -344,7 +344,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
 Create a two-way binding on a form input element or a component.
 
-- **Expects:** varies based on value of form inputs element or output of components
+- **Parametre olarak alır:** varies based on value of form inputs element or output of components
 
 - **Limited to:**
 
@@ -370,7 +370,7 @@ Denote named slots or scoped slots that expect to receive props.
 
 - **Shorthand:** `#`
 
-- **Expects:** JavaScript expression that is valid in a function argument position, including support for destructuring. Optional - only needed if expecting props to be passed to the slot.
+- **Parametre olarak alır:** JavaScript expression that is valid in a function argument position, including support for destructuring. Optional - only needed if expecting props to be passed to the slot.
 
 - **Argument:** slot name (optional, defaults to `default`)
 
@@ -465,11 +465,11 @@ Render the element and component once only, and skip future updates.
 
 ## v-memo <sup class="vt-badge" data-text="3.2+" /> {#v-memo}
 
-- **Expects:** `any[]`
+- **Parametre olarak alır:** `any[]`
 
 - **Details**
 
-  Memoize a sub-tree of the template. Can be used on both elements and components. The directive expects a fixed-length array of dependency values to compare for the memoization. If every value in the array was the same as last render, then updates for the entire sub-tree will be skipped. For example:
+  Memoize a sub-tree of the template. Can be used on both elements and components. The directive Parametre olarak alır a fixed-length array of dependency values to compare for the memoization. If every value in the array was the same as last render, then updates for the entire sub-tree will be skipped. For example:
 
   ```vue-html
   <div v-memo="[valueA, valueB]">
