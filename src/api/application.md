@@ -78,7 +78,7 @@ Uygulama örneğini bir konteyner öğesine monte eder.
 
 Monte edilmiş bir uygulama örneğini kaldırır ve uygulamanın bileşen ağacındaki tüm bileşenler için unmount yaşam döngü kancalarını tetikler.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface App {
@@ -90,7 +90,7 @@ Monte edilmiş bir uygulama örneğini kaldırır ve uygulamanın bileşen ağac
 
 Eğer hem bir ad dizesi hem de bir bileşen tanımı iletiliyorsa, global bir bileşeni kaydeder; sadece ad geçiyorsa, zaten kaydedilmiş bir bileşeni alır.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface App {
@@ -121,7 +121,7 @@ Eğer hem bir ad dizesi hem de bir bileşen tanımı iletiliyorsa, global bir bi
 
 Eğer hem bir ad dizesi hem de bir yönerge tanımı iletiliyorsa, global bir özel yönerge kaydedilir; sadece ad geçiyorsa, zaten kaydedilmiş bir yönergeyi alır.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface App {
@@ -159,7 +159,7 @@ Eğer hem bir ad dizesi hem de bir yönerge tanımı iletiliyorsa, global bir ö
 
 Bir eklenti yükler [plugin](/guide/reusability/plugins).
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface App {
@@ -200,7 +200,7 @@ Mixin'ler, özellikle global mixin'ler, genellikle ekosistem kütüphanelerinde 
 Mantık yeniden kullanımı için [Composables](/guide/reusability/composables) tercih edilmelidir
 :::
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface App {
@@ -212,7 +212,7 @@ Mantık yeniden kullanımı için [Composables](/guide/reusability/composables) 
 
 Uygulama içindeki tüm alt bileşenlere enjekte edilebilecek bir değer sağlar.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface App {
@@ -271,7 +271,7 @@ Uygulama içindeki tüm alt bileşenlere enjekte edilebilecek bir değer sağlar
 
 Mevcut uygulamayı enjeksiyon bağlamı olarak kullanarak bir geri çağrıyı yürütür.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface App {
@@ -301,7 +301,7 @@ Mevcut uygulamayı enjeksiyon bağlamı olarak kullanarak bir geri çağrıyı y
 
 Uygulamanın oluşturulduğu Vue sürümünü sağlar. Bu, [plugins](/guide/reusability/plugins), kullanışlıdır, farklı Vue sürümlerine dayalı koşullu mantık gerekebileceği durumlarda.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface App {
@@ -342,7 +342,7 @@ console.log(app.config)
 
 Uygulama içinden yayılan yakalanmamış hatalar için global bir işleyici atar.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface AppConfig {
@@ -382,7 +382,7 @@ Aşağıdaki kaynaklardan hataları yakalayabilir:
 
 Vue'dan gelen çalışma zamanı uyarıları için özel bir işleyici atar.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface AppConfig {
@@ -400,7 +400,7 @@ Vue'dan gelen çalışma zamanı uyarıları için özel bir işleyici atar.
 
 Belirli uyarıları filtrelemek ve konsol karmaşıklığını azaltmak için kullanılabilir. Tüm Vue uyarıları geliştirme sırasında ele alınmalıdır, bu nedenle bu yalnızca bir hata ayıklama oturumları sırasında birçok uyarı arasında belirli uyarılara odaklanmak için önerilir ve hata ayıklama işlemi tamamlandıktan sonra kaldırılmalıdır.
 
-  :::tip
+  :::İpucu
   Uyarılar yalnızca geliştirme sırasında çalışır, bu nedenle bu yapılandırma üretim modunda görmezden gelinir.
   :::
 
@@ -416,7 +416,7 @@ Belirli uyarıları filtrelemek ve konsol karmaşıklığını azaltmak için ku
 
 Tarayıcı geliştirici aracı performans/timeline panelinde bileşen başlatma, derleme, render ve yama performans izleme özelliğini etkinleştirmek için bunu true olarak ayarlayın. Yalnızca geliştirme modunda ve [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API'sini destekleyen tarayıcılarda çalışır.
 
-- **Tip:** `boolean`
+- **İpucu:** `boolean`
 
 - **Ayrıca Bakınız** [Guide - Performance](/guide/best-practices/performance)
 
@@ -436,7 +436,7 @@ Bu yapılandırma seçeneği, tam derleme kullanıldığında (yani, tarayıcıd
 
 Yerel özel öğeleri tanımak için bir kontrol yöntemi belirtir.
 
-- **Tip:** `(tag: string) => boolean`
+- **İpucu:** `(tag: string) => boolean`
 
 - **Detaylar**
 
@@ -453,13 +453,13 @@ Yerel özel öğeleri tanımak için bir kontrol yöntemi belirtir.
   }
   ```
 
-- **See also** [Vue ve Web Components](/guide/extras/web-components)
+- **Ayrıca Bakınız** [Vue ve Web Components](/guide/extras/web-components)
 
 ### app.config.compilerOptions.whitespace {#app-config-compileroptions-whitespace}
 
 Şablon boşluk işleme davranışını ayarlar.
 
-- **Tip:** `'condense' | 'preserve'`
+- **İpucu:** `'condense' | 'preserve'`
 
 - **Varsayılan:** `'condense'`
 
@@ -483,7 +483,7 @@ Yerel özel öğeleri tanımak için bir kontrol yöntemi belirtir.
 
 Şablonda metin interpolasyonu için kullanılan ayraçları ayarlar.
 
-- **Tip:** `[string, string]`
+- **İpucu:** `[string, string]`
 
 - **Varsayılan:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
 
@@ -502,7 +502,7 @@ Yerel özel öğeleri tanımak için bir kontrol yöntemi belirtir.
 
 Şablonlardaki HTML yorumlarının işlemesini ayarlar.
 
-- **Tip:** `boolean`
+- **İpucu:** `boolean`
 
 - **Varsayılan:** `false`
 
@@ -520,7 +520,7 @@ Yerel özel öğeleri tanımak için bir kontrol yöntemi belirtir.
 
 Herhangi bir bileşen örneğinde erişilebilen global özellikleri kaydetmek için kullanılabilen bir nesne.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface AppConfig {
@@ -556,7 +556,7 @@ Herhangi bir bileşen örneğinde erişilebilen global özellikleri kaydetmek i�
 
 Özel bileşen seçenekleri için birleştirme stratejilerini tanımlamak için bir nesne.
 
-- **Tip**
+- **İpucu**
 
   ```ts
   interface AppConfig {
